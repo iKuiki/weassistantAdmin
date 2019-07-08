@@ -1,0 +1,8 @@
+{
+    "name": "weassistantAdmin",
+    "dockerFile": "Dockerfile",
+    "extensions": [
+        "octref.vetur",
+        "dbaeumer.vscode-eslint"
+    ]
+}
