@@ -1,37 +1,38 @@
 {
-    "editor.tabSize": 2, //2个空格
-    "vetur.format.defaultFormatterOptions": {
-        "prettyhtml": {
-            "printWidth": 200,
-            "singleQuote": false, //双引号
-            "wrapAttributes": false, //属性不分行
-            "sortAttributes": false
-        },
-        "prettier": {
-            "semi": false,
-            "singleQuote": true //vue script 内都用单引号
-        }
+  "vetur.format.defaultFormatterOptions": {
+    "prettyhtml": {
+      "printWidth": 200,
+      "singleQuote": false, //双引号
+      "wrapAttributes": false, //属性不分行
+      "sortAttributes": false
     },
-    "vetur.format.options.tabSize": 2,
-    "vetur.format.defaultFormatter.css": "prettier",
-    "vetur.format.defaultFormatter.postcss": "prettier",
-    "vetur.format.defaultFormatter.scss": "prettier",
-    "vetur.format.defaultFormatter.less": "prettier",
-    "vetur.format.defaultFormatter.stylus": "stylus-supremacy",
-    "vetur.format.defaultFormatter.js": "vscode-typescript",
-    "prettier.bracketSpacing": true,
-    "prettier.jsxBracketSameLine": false,
-    "javascript.updateImportsOnFileMove.enabled": "always",
-    "javascript.format.insertSpaceBeforeFunctionParenthesis": false,
-    "eslint.validate": [
-        "javascript",
-        "javascriptreact",
-        "vue-html",
-        {
-            "language": "vue",
-            "autoFix": true
-        }
-    ],
-    "eslint.run": "onSave",
-    "eslint.autoFixOnSave": true
+    "prettier": {
+      "semi": false,
+      "singleQuote": true //vue script 内都用单引号
+    }
+  },
+  "vetur.format.options.tabSize": 2,
+  "vetur.format.defaultFormatter.css": "prettier",
+  "vetur.format.defaultFormatter.postcss": "prettier",
+  "vetur.format.defaultFormatter.scss": "prettier",
+  "vetur.format.defaultFormatter.less": "prettier",
+  "vetur.format.defaultFormatter.stylus": "stylus-supremacy",
+  "vetur.format.defaultFormatter.js": "vscode-typescript",
+  "prettier.bracketSpacing": true,
+  "prettier.jsxBracketSameLine": false,
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "javascript.format.insertSpaceBeforeFunctionParenthesis": false,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "vue-html",
+    {
+      "language": "vue",
+      "autoFix": true
+    }
+  ],
+  "eslint.run": "onSave",
+  "eslint.autoFixOnSave": true,
+  "prettier.semi": false,
+  "prettier.singleQuote": true
 }
