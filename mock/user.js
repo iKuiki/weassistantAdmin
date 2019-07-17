@@ -27,11 +27,11 @@ const users = {
 export default [
   // user login
   {
-    url: '/user/login',
+    url: '/auth/login',
     type: 'post',
     response: config => {
-      const { username } = config.body
-      const token = tokens[username]
+      const { account } = config.query
+      const token = tokens[account]
 
       // mock error
       if (!token) {
@@ -51,10 +51,10 @@ export default [
 
   // get user info
   {
-    url: '/user/info.*',
+    url: '/my',
     type: 'get',
     response: config => {
-      const { token } = config.query
+      const token = tokens['admin'].token
       const info = users[token]
 
       // mock error
@@ -74,8 +74,8 @@ export default [
 
   // user logout
   {
-    url: '/user/logout',
-    type: 'post',
+    url: '/my',
+    type: 'delete',
     response: _ => {
       return {
         code: 0,

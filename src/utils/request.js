@@ -17,7 +17,7 @@ service.interceptors.request.use(
 
     if (store.getters.token) {
       // 为每个请求设置认证
-      config.headers['Authorization'] = getToken()
+      config.headers['Authorization'] = 'bearermgr ' + getToken()
     }
     return config
   },
