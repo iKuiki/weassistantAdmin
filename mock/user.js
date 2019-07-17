@@ -1,4 +1,3 @@
-
 const tokens = {
   admin: {
     token: 'admin-token'
@@ -12,13 +11,15 @@ const users = {
   'admin-token': {
     roles: ['admin'],
     introduction: 'I am a super administrator',
-    avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
+    id: 1,
+    account: 'admin',
     name: 'Super Admin'
   },
   'editor-token': {
     roles: ['editor'],
     introduction: 'I am an editor',
-    avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif',
+    id: 2,
+    account: 'editor',
     name: 'Normal Editor'
   }
 }
@@ -35,13 +36,14 @@ export default [
       // mock error
       if (!token) {
         return {
-          code: 60204,
-          message: 'Account and password are incorrect.'
+          code: 102,
+          msg: 'Incorrect username or password',
+          data: null
         }
       }
 
       return {
-        code: 20000,
+        code: 0,
         data: token
       }
     }
@@ -49,7 +51,7 @@ export default [
 
   // get user info
   {
-    url: '/user/info\.*',
+    url: '/user/info.*',
     type: 'get',
     response: config => {
       const { token } = config.query
@@ -58,13 +60,13 @@ export default [
       // mock error
       if (!info) {
         return {
-          code: 50008,
-          message: 'Login failed, unable to get user details.'
+          code: 2,
+          msg: 'need login'
         }
       }
-
       return {
-        code: 20000,
+        code: 0,
+        msg: '',
         data: info
       }
     }
@@ -76,8 +78,8 @@ export default [
     type: 'post',
     response: _ => {
       return {
-        code: 20000,
-        data: 'success'
+        code: 0,
+        msg: 'logout success'
       }
     }
   }
