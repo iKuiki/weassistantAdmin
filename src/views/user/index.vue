@@ -2,6 +2,7 @@
   <div class="app-container">
     <el-container>
       <el-header>
+        <el-button @click="fetchData">刷新</el-button>
         <el-button type="primary" @click="createDialogVisible = true">新建</el-button>
         <el-dialog title="新建用户" :visible.sync="createDialogVisible" width="50%">
           <create-form :visible="createDialogVisible" @finish="handleCreateFinish" />
