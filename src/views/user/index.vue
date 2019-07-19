@@ -1,6 +1,12 @@
 <template>
   <div class="app-container">
     <el-container>
+      <el-header>
+        <el-button type="primary" @click="createDialogVisible = true">新建</el-button>
+        <el-dialog title="新建用户" :visible.sync="createDialogVisible" width="50%">
+          <create-form :visible="createDialogVisible" @finish="handleCreateFinish" />
+        </el-dialog>
+      </el-header>
       <el-main>
         <el-table v-loading="listLoading" :data="list" border fit highlight-current-row>
           <el-table-column prop="id" label="ID" width="100" />
@@ -33,14 +39,18 @@
 <script>
 import { getList } from '@/api/user'
 import { formatTime } from '@/utils/index'
+import createForm from './create'
+
 export default {
+  components: { createForm },
   data() {
     return {
       list: null,
       listLoading: true,
       pageNo: 1,
       pageSize: 10,
-      total: 0
+      total: 0,
+      createDialogVisible: false
     }
   },
   created() {
@@ -74,6 +84,13 @@ export default {
       console.log(`当前页: ${val}`)
       this.pageNo = val
       this.fetchData()
+    },
+    handleCreateFinish(val) {
+      if (val) {
+        console.log('created, fetchData')
+        this.fetchData()
+      }
+      this.createDialogVisible = false
     }
   }
 }
