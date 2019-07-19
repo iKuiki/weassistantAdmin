@@ -1,10 +1,9 @@
 import Mock from 'mockjs'
 import { param2Obj } from '../src/utils'
 
-import user from './user'
-import table from './table'
+import auth from './auth'
 
-const mocks = [...user, ...table]
+const mocks = [...auth]
 
 // for front mock
 // please use it cautiously, it will redefine XMLHttpRequest,
