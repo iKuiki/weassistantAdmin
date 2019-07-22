@@ -4,6 +4,8 @@ const getters = {
   token: state => state.auth.token,
   uid: state => state.auth.uid,
   account: state => state.auth.account,
-  name: state => state.auth.name
+  name: state => state.auth.name,
+  lastLoginAt: state => state.auth.lastLoginAt,
+  lastLoginIP: state => state.auth.lastLoginIP
 }
 export default getters

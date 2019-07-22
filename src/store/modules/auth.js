@@ -6,7 +6,9 @@ const state = {
   token: getToken(),
   uid: 0,
   account: '',
-  name: ''
+  name: '',
+  lastLoginAt: '',
+  lastLoginIP: ''
 }
 
 const mutations = {
@@ -21,6 +23,12 @@ const mutations = {
   },
   SET_NAME: (state, name) => {
     state.name = name
+  },
+  SET_LAST_LOGIN_AT: (state, lastLoginAt) => {
+    state.lastLoginAt = lastLoginAt
+  },
+  SET_LAST_LOGIN_IP: (state, lastLoginIP) => {
+    state.lastLoginIP = lastLoginIP
   }
 }
 
@@ -53,11 +61,13 @@ const actions = {
             reject('Verification failed, please Login again.')
           }
 
-          const { id, account, name } = data
+          const { id, account, name, last_login_at, last_login_ip } = data
 
           commit('SET_UID', id)
           commit('SET_ACCOUNT', account)
           commit('SET_NAME', name)
+          commit('SET_LAST_LOGIN_AT', last_login_at)
+          commit('SET_LAST_LOGIN_IP', last_login_ip)
           resolve(data)
         })
         .catch(error => {
