@@ -70,20 +70,6 @@ export const constantRoutes = [
     ]
   },
 
-  {
-    path: '/my',
-    component: Layout,
-    children: [
-      {
-        path: 'index',
-        name: 'My',
-        component: () => import('@/views/my/index'),
-        meta: { title: '个人设置', icon: 'modify-myinfo' }
-      }
-    ]
-    // hidden: true
-  },
-
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }
 ]

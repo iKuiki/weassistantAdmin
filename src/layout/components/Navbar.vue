@@ -14,15 +14,19 @@
           <router-link to="/">
             <el-dropdown-item>首页</el-dropdown-item>
           </router-link>
-          <router-link to="/my/index">
-            <el-dropdown-item>个人设置</el-dropdown-item>
-          </router-link>
           <el-dropdown-item divided>
+            <span style="display:block;" @click="updateInfoDialogVisible = true">个人设置</span>
+          </el-dropdown-item>
+          <el-dropdown-item>
             <span style="display:block;" @click="logout">注销</span>
           </el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
     </div>
+
+    <el-dialog title="修改个人信息" :visible.sync="updateInfoDialogVisible">
+      <update-info :visible="updateInfoDialogVisible" @finish="handleUpdateInfoFinish" />
+    </el-dialog>
   </div>
 </template>
 
@@ -30,11 +34,18 @@
 import { mapGetters } from 'vuex'
 import Breadcrumb from '@/components/Breadcrumb'
 import Hamburger from '@/components/Hamburger'
+import updateInfo from './dialog/updateInfo'
 
 export default {
   components: {
     Breadcrumb,
-    Hamburger
+    Hamburger,
+    updateInfo
+  },
+  data() {
+    return {
+      updateInfoDialogVisible: false
+    }
   },
   computed: {
     ...mapGetters([
@@ -49,6 +60,9 @@ export default {
     async logout() {
       await this.$store.dispatch('auth/logout')
       this.$router.push(`/login?redirect=${this.$route.fullPath}`)
+    },
+    handleUpdateInfoFinish() {
+      this.updateInfoDialogVisible = false
     }
   }
 }
