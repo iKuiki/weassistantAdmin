@@ -1,4 +1,5 @@
 import request from '@/utils/request'
+import qs from 'qs'
 
 export function getList(data) {
   return request({
@@ -12,6 +13,6 @@ export function create(data) {
   return request({
     url: '/user',
     method: 'post',
-    params: data
+    data: qs.stringify(data)
   })
 }

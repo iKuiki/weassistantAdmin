@@ -1,4 +1,5 @@
 import request from '@/utils/request'
+import qs from 'qs'
 
 export function login(data) {
   return request({
@@ -8,7 +9,7 @@ export function login(data) {
   })
 }
 
-export function getInfo(token) {
+export function getInfo() {
   return request({
     url: '/my',
     method: 'get'
@@ -19,5 +20,13 @@ export function logout() {
   return request({
     url: '/my',
     method: 'delete'
+  })
+}
+
+export function updateInfo(data) {
+  return request({
+    url: '/my',
+    method: 'patch',
+    data: qs.stringify(data)
   })
 }
